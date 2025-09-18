@@ -143,11 +143,7 @@ function App() {
             </div>
 
             <div className="game">
-              <div className="scoreboard">
-                <p>Correct: {correct}</p>
-                <p>Score: {score}</p>
-                <p>High score: {highscore}</p>
-              </div>
+              <Score correct={correct} score={score} highscore={highscore} />
 
               <div className="question-container">
                 {!finished ? (
