@@ -1,0 +1,173 @@
+:root {
+  --primary-color: #8a08e7;
+  --bg-color: #000;
+  --accent-color: #eeff00;
+  --success-color: #00ffa6;
+  --success-hover: #006d47;
+  --text-light: #fff;
+  --text-dark: #000;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+/* PixelBlast 背景 */
+.pixel-blast-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pixel-blast-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* 遊戲內容容器垂直水平置中 */
+.app-container {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直置中 */
+  align-items: center;     /* 水平置中 */
+  text-align: center;
+  padding: 20px;
+}
+
+/* 規則與遊戲內容 */
+.rules, .game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  z-index: 2;
+  width: 100%;
+}
+
+/* 按鈕 */
+button {
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6905b0;
+}
+
+button.restart-btn {
+  background-color: var(--success-color);
+  color: var(--text-dark);
+}
+
+button.restart-btn:hover {
+  background-color: var(--success-hover);
+  color: var(--text-light);
+}
+
+/* 計分板 */
+.scoreboard {
+  display: flex;
+  gap: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 題目容器 */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* 題目圖片 */
+img.question-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+/* 輸入框 */
+input.answer-input {
+  width: 180px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-color);
+  background-color: rgba(255,255,255,0.05);
+  color: var(--text-light);
+}
+
+input.answer-input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* 滾動文字 */
+.scroll-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* 遮罩與前景文字 */
+.box {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 響應式 */
+@media (max-width: 600px) {
+  img.question-image {
+    width: 120px;
+    height: 120px;
+  }
+  input.answer-input, button {
+    width: 140px;
+  }
+  .scoreboard {
+    gap: 20px;
+    font-size: 18px;
+    flex-wrap: wrap;
+  }
+  .scroll-text {
+    font-size: 1.2rem;
+  }
+}
